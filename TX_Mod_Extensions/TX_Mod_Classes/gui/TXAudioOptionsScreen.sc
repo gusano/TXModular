@@ -71,25 +71,26 @@ classvar system, w;
 
 	// decorator 
 	w.view.decorator.shift(30, 0);
-	
-	// popup - Audio device  
-	arrValidDevices = 
-		ServerOptions.devices.reject({arg item, i; arrRejectStrings.indexOfEqual(item).notNil});
-	popAudioDevice = PopUpMenu(w, 270 @ 27)
-		.background_(TXColor.sysGuiCol2).stringColor_(TXColor.white);
-	popAudioDevice.items = ["Use Default Device"] 
-		++ arrValidDevices.collect({arg item, i; 
-			item.replace("(", "[")   
-			.replace(")", "]");
+	if (Platform.name == 'osx', {
+		// popup - Audio device
+		arrValidDevices = ServerOptions.devices.reject({ |item, i|
+			arrRejectStrings.indexOfEqual(item).notNil
 		});
-	popAudioDevice.action = {|view|
-		var arrDevices;
-		arrDevices = [nil] ++ arrValidDevices;
-		system.dataBank.audioDevice = arrDevices.at(view.value);
-		holdServerOptions.device = system.dataBank.audioDevice;
-		system.saveSystemSettings;
-	};
-	popAudioDevice.value = ([nil] ++ ServerOptions.devices).indexOfEqual(system.dataBank.audioDevice) ? 0;
+		popAudioDevice = PopUpMenu(w, 270 @ 27)
+		    .background_(TXColor.sysGuiCol2).stringColor_(TXColor.white);
+		popAudioDevice.items = ["Use Default Device"]
+		    ++ arrValidDevices.collect({ |item, i|
+				item.replace("(", "[").replace(")", "]");
+		});
+		popAudioDevice.action = {|view|
+			var arrDevices;
+			arrDevices = [nil] ++ arrValidDevices;
+			system.dataBank.audioDevice = arrDevices.at(view.value);
+			holdServerOptions.device = system.dataBank.audioDevice;
+			system.saveSystemSettings;
+		};
+		popAudioDevice.value = ([nil] ++ ServerOptions.devices).indexOfEqual(system.dataBank.audioDevice) ? 0;
+	});
 
 	// decorator 
 	w.view.decorator.nextLine;
