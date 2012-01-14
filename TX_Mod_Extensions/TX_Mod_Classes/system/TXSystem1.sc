@@ -580,7 +580,10 @@ TXSystem1 {		// system module 1
 		//		server = Server.internal;
 		//	},{//		server = Server.local;
 		//	});	// server now always internal
-		server = Server.internal;	
+		Platform.case(
+			\osx,   { server = Server.internal },
+			\linux, { server = Server.default }
+		);
 		Server.default = server;
 		server.quit;
 
