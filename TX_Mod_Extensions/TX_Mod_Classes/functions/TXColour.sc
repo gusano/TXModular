@@ -1,4 +1,5 @@
-// Copyright (C) 2005  Paul Miller. This file is part of TX Modular system distributed under the terms of the GNU General Public License (see file LICENSE).TXColour : Color {		// TX system colours 
+// Copyright (C) 2005  Paul Miller. This file is part of TX Modular system distributed under the terms of the GNU General Public License (see file LICENSE).
+TXColour : Color {		// TX system colours 
 
 //	NB: See bottom of Color help file for all the X-windows colors
 
@@ -23,7 +24,7 @@ classvar <sysViewHighlight;
 classvar <>colourPickerWindow;
 classvar sysAlpha;
 classvar arrColourSlots;
-	*initClass { 
+	*initClass { 
 		arrColourSlots = Color.white ! 11;
 		sysAlpha = 1;
 		this.sysColourSet1;

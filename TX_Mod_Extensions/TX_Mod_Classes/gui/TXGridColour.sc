@@ -1,5 +1,5 @@
 // Copyright (C) 2005  Paul Miller. This file is part of TX Modular system distributed under the terms of the GNU General Public License (see file LICENSE).
-		TXGridColour {	// self-building module of various gui elements
+TXGridColour {	// self-building module of various gui elements
 	var <>labelView, <>labelView2, <>labelView3;
 	var <>colourGrid, <>activeGrid, <>snapshotButton, <>infoLabel, <>shadeBox;
 	var <>redNumBox, <>greenNumBox, <>blueNumBox;

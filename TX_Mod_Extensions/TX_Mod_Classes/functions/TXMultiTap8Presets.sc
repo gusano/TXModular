@@ -1,4 +1,5 @@
-// Copyright (C) 2005  Paul Miller. This file is part of TX Modular system distributed under the terms of the GNU General Public License (see file LICENSE).TXMultiTap8Presets {
+// Copyright (C) 2005  Paul Miller. This file is part of TX Modular system distributed under the terms of the GNU General Public License (see file LICENSE).
+TXMultiTap8Presets {
 
 // Note this is for 8-tap presets. See class TXMultiTapPresets for 4-tap presets.
 

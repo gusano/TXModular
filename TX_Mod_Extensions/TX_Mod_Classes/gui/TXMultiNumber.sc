@@ -83,4 +83,3 @@ TXMultiNumber {	// TXMultiNumber module with label
 		action.value(this);
 	}
 }
-

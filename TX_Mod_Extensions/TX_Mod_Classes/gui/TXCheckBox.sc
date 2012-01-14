@@ -7,11 +7,11 @@ var <>offText, <>onText;
 
 *new{arg argParent, bounds, text, offStringColor, offBackground, onStringColor, onBackground, onOffTextType;
 	 ^super.new.init(argParent, bounds, text, offStringColor, offBackground, onStringColor, onBackground, onOffTextType);
-} 
+}
 
 init {arg argParent, bounds, text, offStringColor, offBackground, onStringColor, onBackground, onOffTextType;
 
-	// create on and off text 
+	// create on and off text
 	onOffTextType = onOffTextType ? 0;
 	[
 		{offText = "[  ]  "; onText =  "[X] "; }, // 0
@@ -28,9 +28,9 @@ init {arg argParent, bounds, text, offStringColor, offBackground, onStringColor,
 		{offText = "[NO] "; onText = "[YES] "; }, // 11
 	].at(onOffTextType).value;
 
-	// assign parent 
+	// assign parent
 	parent = argParent;
-	// create button 
+	// create button
 	buttonView = Button(argParent, bounds);
 	buttonView.states = [
 		[offText ++ (text ? ""), offStringColor, offBackground],
@@ -42,7 +42,7 @@ init {arg argParent, bounds, text, offStringColor, offBackground, onStringColor,
 		view.focus(false);
 		argParent.refresh;
 	};
-} 
+}
 
 	enabled {
 		^buttonView.getProperty(\enabled)
@@ -62,4 +62,3 @@ visible_ { arg argVal;
 }
 
 }
-

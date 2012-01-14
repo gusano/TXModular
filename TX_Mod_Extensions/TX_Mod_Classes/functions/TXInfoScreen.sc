@@ -1,14 +1,14 @@
 // Copyright (C) 2005  Paul Miller. This file is part of TX Modular system distributed under the terms of the GNU General Public License (see file LICENSE).
 
-TXInfoScreen {		// Information Screen module 
+TXInfoScreen {		// Information Screen module
 	var w;
 
 *new{ arg message = "ERROR", showCloseBtn=1 , winColour, inLeft=10, inTop=500, arrInfoLines;	 ^super.new.makeWindow(message, showCloseBtn, winColour, inLeft, inTop, arrInfoLines);
-} 
+}
 
 *newConfirmWindow {arg argConfirmedAction, message = "Confirm", winColour, inLeft=20, inTop=500;
  	 ^super.new.makeConfirmWindow(argConfirmedAction, message, winColour, inLeft, inTop);
-} 
+}
 
 makeWindow{ arg message, showCloseBtn, winColour, inLeft, inTop, arrInfoLines;
 	var button, arrInfoLinesHeight;
@@ -31,18 +31,18 @@ makeWindow{ arg message, showCloseBtn, winColour, inLeft, inTop, arrInfoLines;
 				.string_(item)
 				.background_(TXColour.white);
 		});
-	});	
+	});
 	if (showCloseBtn==1, {
 		w.view.decorator.nextLine;
 		w.view.decorator.shift(30,30);
 		button = Button(w, 100 @ 30)
 			.states = [["Close", TXColor.white, TXColor.black]];
-		button.action = {this.close};	
+		button.action = {this.close};
 	});
 }.defer;
 }
 
-close {		//	close window 
+close {		//	close window
 	if (w.isClosed.not, {w.close});
 }
 
@@ -60,18 +60,18 @@ makeConfirmWindow{ arg argConfirmedAction, message, winColour, inLeft, inTop;
 		.string_(message)
 		.background_(TXColour.white);
 
-	// confirm button 
+	// confirm button
 	w.view.decorator.nextLine;
 	w.view.decorator.shift(30,30);
 	btnConfirm = Button(w, 80 @ 30)
 		.states = [["Confirm", TXColor.white, TXColor.black]];
 	btnConfirm.action = { this.close; argConfirmedAction.value;};
 
-	// cancel button 
+	// cancel button
 	w.view.decorator.shift(30, 0);
 	btnCancel = Button(w, 80 @ 30)
 		.states = [["Cancel", TXColor.white, TXColor.grey]];
-	btnCancel.action = {this.close;};	
+	btnCancel.action = {this.close;};
 }.defer;
 }
 

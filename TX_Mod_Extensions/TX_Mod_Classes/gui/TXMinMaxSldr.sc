@@ -208,6 +208,3 @@ TXMinMaxSlider {
 		};
 	}
 }
-
-
-

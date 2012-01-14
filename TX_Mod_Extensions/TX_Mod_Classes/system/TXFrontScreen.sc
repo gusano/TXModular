@@ -468,5 +468,3 @@ classvar <classData;
 
 
 }	// end of class
-
-

@@ -404,5 +404,3 @@ TXFrontScreenGui {	// Front Screen gui
 
 
 }	// end of class
-
-

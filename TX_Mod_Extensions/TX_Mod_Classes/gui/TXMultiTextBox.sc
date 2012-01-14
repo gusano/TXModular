@@ -1,22 +1,22 @@
 // Copyright (C) 2005  Paul Miller. This file is part of TX Modular system distributed under the terms of the GNU General Public License (see file LICENSE).
-		
+
 TXMultiTextBox {	// TXMultiTextBox module with label
 	var <>labelView, <>scrollView, <>arrTextViews, <strings, <size;
-	
-	*new { arg window, dimensions, label, initStrings, 
+
+	*new { arg window, dimensions, label, initStrings,
 			labelWidth=80, textWidth = 20, scrollViewWidth, scrollViewAction;
-		^super.new.init(window, dimensions, label, initStrings, 
+		^super.new.init(window, dimensions, label, initStrings,
 			labelWidth, textWidth, scrollViewWidth, scrollViewAction);
 	}
-	init { arg window, dimensions, label, initStrings, 
+	init { arg window, dimensions, label, initStrings,
 			labelWidth, textWidth, scrollViewWidth, scrollViewAction;
 		var holdTextBox, scrollBox, extraHeight;
 		labelView = StaticText(window, labelWidth @ dimensions.y);
 		labelView.string = label;
 		labelView.align = \right;
-		
+
 		initStrings = initStrings ? Array.fill(8, " ");
-		
+
 		strings = initStrings;
 		size = initStrings.size;
 		if (scrollViewWidth.notNil, {
@@ -50,9 +50,9 @@ TXMultiTextBox {	// TXMultiTextBox module with label
 			arrTextViews = arrTextViews.add(holdTextBox);
 			holdTextBox.string = initStrings.at(i);
 		});
-		
+
 	}
-	strings_ { arg argValue; 
+	strings_ { arg argValue;
 		arrTextViews.do({ arg item, i;
 			if (argValue.at(i).notNil, {
 				item.string = argValue.at(i);
@@ -60,4 +60,3 @@ TXMultiTextBox {	// TXMultiTextBox module with label
 		});
 	}
 }
-

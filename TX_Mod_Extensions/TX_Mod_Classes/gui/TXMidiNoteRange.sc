@@ -3,33 +3,33 @@
 TXMidiNoteRange {
 	var <>labelView, <>rangeView, <>minNumberView, <>maxNumberView, <>minNoteView, <>maxNoteView;
 	var <>controlSpec, <>action, <lo, <hi, <>round = 0.0001;
-	
-	*new { arg window, dimensions, label, controlSpec, action, initMinVal, initMaxVal, 
+
+	*new { arg window, dimensions, label, controlSpec, action, initMinVal, initMaxVal,
 			initAction=false, labelWidth=80, numberWidth = 120, showButtons = false;
-		^super.new.init(window, dimensions, label, controlSpec, action, initMinVal, initMaxVal, 
+		^super.new.init(window, dimensions, label, controlSpec, action, initMinVal, initMaxVal,
 			initAction, labelWidth, numberWidth, showButtons);
 	}
-	init { arg window, dimensions, label, argControlSpec, argAction, initMinVal, initMaxVal, 
+	init { arg window, dimensions, label, argControlSpec, argAction, initMinVal, initMaxVal,
 			initAction, labelWidth, numberWidth, showButtons;
 		var height, spacingX, arrButtonStrings, arrButtonActions, arrRangePresets;
-		
+
 		if (window.class == Window, {
 			spacingX = window.view.decorator.gap.x;
 		}, {
 			spacingX = window.decorator.gap.x;
 		});
 		height = dimensions.y;
-		
+
 		controlSpec = argControlSpec.asSpec;
 		initMinVal = initMinVal ? controlSpec.minval;
 		initMaxVal = initMaxVal ? controlSpec.maxval;
-		
+
 		action = argAction;
-		
+
 		labelView = StaticText(window, labelWidth @ height);
 		labelView.string = label;
 		labelView.align = \right;
-		
+
 		rangeView = RangeSlider(window, (dimensions.x - labelWidth - numberWidth - spacingX - 4) @ height );
 		rangeView.action = {
 			minNumberView.value = controlSpec.map(rangeView.lo);
@@ -48,7 +48,7 @@ TXMidiNoteRange {
 			rangeView.lo = controlSpec.unmap(minNumberView.value);
 			action.value(this);
 		};
-		
+
 		minNoteView = PopUpMenu(window, (40 @ height))
 				.background_(Color.white)
 				.items_(TXGetMidiNoteString.arrAllNoteNames)
@@ -58,7 +58,7 @@ TXMidiNoteRange {
 					rangeView.lo = controlSpec.unmap(minNumberView.value);
 					action.value(this);
 				});
-		
+
 		maxNumberView = TXScrollNumBox(window, ((numberWidth/4) - spacingX).asInteger @ height);
 		maxNumberView.action = {
 			maxNumberView.value = controlSpec.constrain(maxNumberView.value).round(round);
@@ -77,11 +77,11 @@ TXMidiNoteRange {
 					rangeView.hi = controlSpec.unmap(maxNumberView.value);
 					action.value(this);
 				});
-		
+
 		if (controlSpec.step != 0) {
 			rangeView.step = (controlSpec.step / (controlSpec.maxval - controlSpec.minval));
 		};
-		
+
 		arrButtonStrings = ["<-12", "<-1", "1->", "12->", "-12", "-1","+1", "+12"];
 		arrButtonActions = [
 			{this.valueBoth = this.valueBoth - 12;},
@@ -131,7 +131,7 @@ TXMidiNoteRange {
 				Button(window, 35 @ 20)
 				.states_([[arrButtonStrings.at(i), TXColor.white, TXColor.sysGuiCol1]])
 				.action_(arrButtonActions.at(i))
-				
+
 			});
 			if (window.class == Window, {
 				window.view.decorator.shift(6,0);
@@ -160,30 +160,30 @@ TXMidiNoteRange {
 		};
 	}
 
-	value {  
-		^lo; 
+	value {
+		^lo;
 	}
-	
-	valueBoth {  
-		^[lo, hi]; 
+
+	valueBoth {
+		^[lo, hi];
 	}
-	
-	range {  
-		^hi - lo; 
+
+	range {
+		^hi - lo;
 	}
-	
-	value_ { arg value; 
+
+	value_ { arg value;
 		lo = controlSpec.constrain(value);
 		minNumberView.valueAction = lo.round(round);
 	}
-	
-	valueBoth_ { arg valueArray; 
+
+	valueBoth_ { arg valueArray;
 		lo = controlSpec.constrain(valueArray.at(0));
 		minNumberView.valueAction = lo.round(round);
 		hi = controlSpec.constrain(valueArray.at(1));
 		maxNumberView.valueAction = hi.round(round);
 	}
-	
+
 	valueBothNoAction_  { arg valueArray;
 			minNumberView.value = controlSpec.map(valueArray.at(0));
 			maxNumberView.value = controlSpec.map(valueArray.at(1));
@@ -191,17 +191,17 @@ TXMidiNoteRange {
 			hi = maxNumberView.value;
 	}
 
-	lo_ {arg value; 
+	lo_ {arg value;
 		lo = controlSpec.constrain(value);
 		minNumberView.valueAction = lo.round(round);
 	}
 
-	hi_ {  arg value; 
+	hi_ {  arg value;
 		hi = controlSpec.constrain(value);
 		maxNumberView.valueAction = hi.round(round);
 	}
-	
-	range_ {arg value; 
+
+	range_ {arg value;
 		hi = controlSpec.constrain(lo + value.abs);
 		maxNumberView.valueAction = hi.round(round);
 	}
@@ -212,7 +212,7 @@ TXMidiNoteRange {
 		initMaxVal =  initMaxVal ? controlSpec.maxval;
 
 		action = argAction;
-	
+
 		minNumberView.value = controlSpec.constrain(initMinVal).round(round);
 		rangeView.lo = controlSpec.unmap(initMinVal);
 		maxNumberView.value = controlSpec.constrain(initMaxVal).round(round);
@@ -222,6 +222,3 @@ TXMidiNoteRange {
 		};
 	}
 }
-
-
-

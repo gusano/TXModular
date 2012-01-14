@@ -1,4 +1,5 @@
-// Copyright (C) 2011  Paul Miller. This file is part of TX Modular system distributed under the terms of the GNU General Public License (see file LICENSE).TXFilter {		// Filter module 
+// Copyright (C) 2011  Paul Miller. This file is part of TX Modular system distributed under the terms of the GNU General Public License (see file LICENSE).
+TXFilter {		// Filter module 
 
 *initClass{
 	//	

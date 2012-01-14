@@ -134,4 +134,3 @@ totalTime {
 	^value.at(1).sum;
 }
 }
-

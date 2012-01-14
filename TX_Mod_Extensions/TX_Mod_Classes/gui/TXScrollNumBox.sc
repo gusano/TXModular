@@ -80,7 +80,7 @@ TXScrollNumBox {
 		box.align_(a);
 	}
 	value_ { arg val;
-//		box.keyString = nil;		box.object = val !? { val.clip(clipLo, clipHi) };
+//		box.keyString = nil;		box.object = val !? { val.clip(clipLo, clipHi) };
 		box.string = box.object.asString;
 	}	
 	focusColor_ {arg color;
@@ -160,4 +160,3 @@ TXScrollNumBox {
 		this.updateSpec(spec);
 	}
 }
-

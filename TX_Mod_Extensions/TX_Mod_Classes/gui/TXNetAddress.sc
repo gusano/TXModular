@@ -171,6 +171,3 @@ TXNetAddress {
 		numberView4.remove;
 	}
 }
-
-
-

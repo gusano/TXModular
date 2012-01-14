@@ -113,11 +113,11 @@ TXMidiNoteKeybGrid {	// midi note keyboard and selection grid module
 // No longer used
 //		// add octave popup if not scrolling
 //		if (scrollViewAction.isNil, {
-//			// create octave popup//			popupOctave = PopUpMenu(window, 110 @ 20);//			popupOctave.items = (12 - numKeybOctaves).collect({arg item, i; //				"Show C" ++ (item - 2).asString ++ " to B" ++ (item - 2 + (numKeybOctaves - 1)).asString; //			});//			popupOctave.stringColor_(TXColour.black).background_(TXColor.paleVioletRed);//			popupOctave.action = { arg view;//				setOctaveFunction.value(view.value);//				// recreate view//				system.showView;//			};//			popupOctave.value = holdOctave;//	
-//			// adjust spacing//			if (window.class == Window, {//				window.view.decorator.shift(-74, 24);//			}, {//				window.decorator.shift(-74, 24);//			});	
+//			// create octave popup//			popupOctave = PopUpMenu(window, 110 @ 20);//			popupOctave.items = (12 - numKeybOctaves).collect({arg item, i; //				"Show C" ++ (item - 2).asString ++ " to B" ++ (item - 2 + (numKeybOctaves - 1)).asString; //			});//			popupOctave.stringColor_(TXColour.black).background_(TXColor.paleVioletRed);//			popupOctave.action = { arg view;//				setOctaveFunction.value(view.value);//				// recreate view//				system.showView;//			};//			popupOctave.value = holdOctave;//	
+//			// adjust spacing//			if (window.class == Window, {//				window.view.decorator.shift(-74, 24);//			}, {//				window.decorator.shift(-74, 24);//			});	
 //			Button(window, 18 @ 18)
-//			.states_([["-", TXColor.white, TXColor.sysGuiCol1]])//			.action_({|view|//				popupOctave.valueAction = (popupOctave.value - 1).max(0);//			});//			Button(window, 18 @ 18)//			.states_([["+", TXColor.white, TXColor.sysGuiCol1]])//			.action_({|view|//				popupOctave.valueAction = (popupOctave.value + 1).min(popupOctave.items.size - 1);//			});//	
-//			// adjust spacing//			if (window.class == Window, {//				window.view.decorator.shift(-74, -24);//			}, {//				window.decorator.shift(-74, -24);//			});//		});
+//			.states_([["-", TXColor.white, TXColor.sysGuiCol1]])//			.action_({|view|//				popupOctave.valueAction = (popupOctave.value - 1).max(0);//			});//			Button(window, 18 @ 18)//			.states_([["+", TXColor.white, TXColor.sysGuiCol1]])//			.action_({|view|//				popupOctave.valueAction = (popupOctave.value + 1).min(popupOctave.items.size - 1);//			});//	
+//			// adjust spacing//			if (window.class == Window, {//				window.view.decorator.shift(-74, -24);//			}, {//				window.decorator.shift(-74, -24);//			});//		});
 		
 		// optional parameter buttons
 		if (arrParmNames.notNil, {
@@ -199,4 +199,3 @@ TXMidiNoteKeybGrid {	// midi note keyboard and selection grid module
 	}
 	
 }
-

@@ -3,18 +3,18 @@
 TXMinMaxFreqNoteSldr {
 	var <>labelView, labelView2, <>sliderView, <>numberView, <>notePopup, <>rangeView, <>minNumberView, <>maxNumberView, <>presetPopupView;
 	var <>controlSpec, controlSpec2, <>action, viewValue, <>round = 0.001;
-	
+
 	// controlSpec2 is only used internally and it's min & max are decided by minNumberView & maxNumberView
-	
-	*new { arg window, dimensions, label, controlSpec, action, initVal, 
+
+	*new { arg window, dimensions, label, controlSpec, action, initVal,
 			initAction=false, labelWidth=80, numberWidth = 120, arrRangePresets;
-		^super.new.init(window, dimensions, label, controlSpec, action, initVal, 
+		^super.new.init(window, dimensions, label, controlSpec, action, initVal,
 			initAction, labelWidth, numberWidth, arrRangePresets);
 	}
-	init { arg window, dimensions, label, argControlSpec, argAction, initVal, 
+	init { arg window, dimensions, label, argControlSpec, argAction, initVal,
 			initAction, labelWidth, numberWidth, arrRangePresets;
 		var height, spacingX, spacingY, presetWidth;
-		
+
 		if (window.class == Window, {
 			spacingX = window.view.decorator.gap.x;
 			spacingY = window.view.decorator.gap.y;
@@ -28,17 +28,17 @@ TXMinMaxFreqNoteSldr {
 			presetWidth = 0;
 		});
 		height = ( (dimensions.y - spacingY) / 2).asInteger;
-		
+
 		labelView = StaticText(window, labelWidth @ height);
 		labelView.string = label;
 		labelView.align = \right;
-		
+
 		controlSpec = argControlSpec.asSpec;
 		initVal = initVal ? controlSpec.default;
 		controlSpec2 = controlSpec.deepCopy.asSpec;
-		
+
 		action = argAction;
-		
+
 		sliderView = Slider(window, (dimensions.x - labelWidth - numberWidth - (2 * spacingX)) @ height);
 		sliderView.action = {
 			viewValue = controlSpec2.map(sliderView.value);
@@ -64,14 +64,14 @@ TXMinMaxFreqNoteSldr {
 			});
 			rangeView.lo = controlSpec.unmap(minNumberView.value);
 			rangeView.hi = controlSpec.unmap(maxNumberView.value);
-			
+
 			sliderView.value = controlSpec2.unmap(viewValue);
 			action.value(this);
 		};
-		
+
 		notePopup = PopUpMenu(window, ((numberWidth - spacingX)/2).asInteger @ height)
 			.stringColor_(TXColor.sysGuiCol1).background_(TXColor.white);
-		notePopup.items = ["notes"] 
+		notePopup.items = ["notes"]
 			++ 103.collect({arg item; TXGetMidiNoteString(item + 24);});
 		notePopup.action = {
 			if (notePopup.value > 0, {
@@ -81,7 +81,7 @@ TXMinMaxFreqNoteSldr {
 			});
 		};
 
-		// decorator next line & shift 
+		// decorator next line & shift
 			if (window.class == Window, {
 				window.view.decorator.nextLine;
 			}, {
@@ -91,8 +91,8 @@ TXMinMaxFreqNoteSldr {
 		labelView2 = StaticText(window, labelWidth @ height);
 		labelView2.string = "Min - Max";
 		labelView2.align = \right;
-		
-		rangeView = RangeSlider(window, 
+
+		rangeView = RangeSlider(window,
 			(dimensions.x - labelWidth - numberWidth - (2 * spacingX)) @ (height * 0.8) );
 		rangeView.action = {
 			minNumberView.value = controlSpec.map(rangeView.lo).round(round);
@@ -107,8 +107,8 @@ TXMinMaxFreqNoteSldr {
 		};
 		rangeView.lo = controlSpec.minval;
 		rangeView.hi = controlSpec.maxval;
-		
-		minNumberView = TXScrollNumBox(window, ((numberWidth - presetWidth - spacingX)/2).asInteger @ (height * 0.8), 
+
+		minNumberView = TXScrollNumBox(window, ((numberWidth - presetWidth - spacingX)/2).asInteger @ (height * 0.8),
 			controlSpec);
 		minNumberView.action = {
 			minNumberView.value = controlSpec.constrain(minNumberView.value).round(round);
@@ -121,7 +121,7 @@ TXMinMaxFreqNoteSldr {
 			action.value(this);
 		};
 		minNumberView.value = controlSpec.minval;
-		
+
 		maxNumberView = TXScrollNumBox(window, ((numberWidth - presetWidth - spacingX)/2).asInteger @ (height * 0.8),
 			controlSpec);
 		maxNumberView.action = {
@@ -143,7 +143,7 @@ TXMinMaxFreqNoteSldr {
 						.action_({ arg view;
 							var arrMinMax;
 							arrMinMax = arrRangePresets.at(view.value).at(1);
-							this.valueSplitAction = [this.valueSplit.at(0), arrMinMax.at(0), arrMinMax.at(1)]; 
+							this.valueSplitAction = [this.valueSplit.at(0), arrMinMax.at(0), arrMinMax.at(1)];
 							view.value = 0;
 						});
 		});
@@ -157,43 +157,43 @@ TXMinMaxFreqNoteSldr {
 		};
 	}
 
-	value {  
-		^viewValue; 
-	}
-	
-	value_ { arg value; 
-		numberView.valueAction = value; 
-	}
-	
-	valueNoAction_  { arg value; 
-		numberView.value = value; 
+	value {
+		^viewValue;
 	}
 
-	valueSplit {  
-		^[sliderView.value, minNumberView.value, maxNumberView.value]; 
+	value_ { arg value;
+		numberView.valueAction = value;
 	}
-	
-	valueSplit_ { arg valueArray; 
-		minNumberView.value = valueArray.at(1) ? 0; 
+
+	valueNoAction_  { arg value;
+		numberView.value = value;
+	}
+
+	valueSplit {
+		^[sliderView.value, minNumberView.value, maxNumberView.value];
+	}
+
+	valueSplit_ { arg valueArray;
+		minNumberView.value = valueArray.at(1) ? 0;
 		minNumberView.value = controlSpec.constrain(minNumberView.value).round(round);
 		rangeView.lo = controlSpec.unmap(minNumberView.value);
 		controlSpec2.minval = minNumberView.value;
-		maxNumberView.value = valueArray.at(2) ? 0; 
+		maxNumberView.value = valueArray.at(2) ? 0;
 		maxNumberView.value = controlSpec.constrain(maxNumberView.value).round(round);
 		rangeView.hi = controlSpec.unmap(maxNumberView.value);
 		controlSpec2.maxval = maxNumberView.value;
 		numberView.updateSpec(controlSpec2);
-		sliderView.value = valueArray.at(0) ? 0; 
+		sliderView.value = valueArray.at(0) ? 0;
 		viewValue = controlSpec2.map(sliderView.value);
 		numberView.value = viewValue.round(round);
 	}
 
-	valueSplitAction_ { arg valueArray; 
+	valueSplitAction_ { arg valueArray;
 		this.valueSplit_(valueArray);
 		action.value(this);
 	}
 
-	
+
 	set { arg label, spec, argAction, initVal, initMinVal, initMaxVal, initAction=false;
 		labelView.string = label;
 		controlSpec = spec.asSpec;
@@ -202,11 +202,11 @@ TXMinMaxFreqNoteSldr {
 		initMaxVal =  initMaxVal ? controlSpec.maxval;
 		controlSpec2 = controlSpec.deepCopy.asSpec;
 		controlSpec2.minval = initMinVal;
-		controlSpec2.maxval = initMaxVal;	
-		numberView.updateSpec(controlSpec2);	
+		controlSpec2.maxval = initMaxVal;
+		numberView.updateSpec(controlSpec2);
 
 		action = argAction;
-	
+
 		if (initAction) {
 			this.value = initVal;
 		}{
@@ -216,6 +216,3 @@ TXMinMaxFreqNoteSldr {
 		};
 	}
 }
-
-
-

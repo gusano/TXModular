@@ -103,4 +103,3 @@ TXMultiSlider {	// MultiSlider module with label
 		};
 	}
 }
-

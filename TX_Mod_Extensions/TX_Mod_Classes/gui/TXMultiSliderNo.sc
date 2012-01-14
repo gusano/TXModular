@@ -85,4 +85,3 @@ TXMultiSliderNo {	// MultiSlider & MultiNumber module with label
 		};
 	}
 }
-

@@ -80,6 +80,3 @@ TXMixerLevel {
 	}
 	
 }
-
-
-

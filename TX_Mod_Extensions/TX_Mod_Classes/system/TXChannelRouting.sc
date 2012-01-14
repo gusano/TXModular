@@ -329,7 +329,7 @@ classvar showDelButtons;
 			if (item.moduleType == "groupaction", {
 				holdType = "action";
 			},{
-				holdType = item.moduleRate;	
+				holdType = item.moduleRate;	
 			});
 		});
 		item.defaultName + " ["++ holdType ++ "]"; 
@@ -753,5 +753,3 @@ classvar showDelButtons;
 }
 
 }
-
-

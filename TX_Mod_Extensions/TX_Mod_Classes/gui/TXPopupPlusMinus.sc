@@ -75,4 +75,3 @@ TXPopupPlusMinus {	// popup module with label
 		};
 	}
 }
-

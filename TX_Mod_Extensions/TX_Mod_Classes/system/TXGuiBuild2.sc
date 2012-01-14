@@ -4198,4 +4198,3 @@ TXGuiBuild2 {		// Gui builder for modules - called by TXModuleBase:baseOpenGui
 	}
 
 }
-

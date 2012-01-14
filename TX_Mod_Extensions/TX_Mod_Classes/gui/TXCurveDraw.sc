@@ -330,7 +330,7 @@ TXCurveDraw {	// MultiSlider, popup and buttons for curve drawing with 5 user sl
 			};
 			popupView = TXPopup(window, 400 @ 20, "", popItems, popAction, 
 				0, false, labelWidth);
-			popupView.popupMenuView.stringColor_(TXColour.black).background_(TXColor.white);		});
+			popupView.popupMenuView.stringColor_(TXColour.black).background_(TXColor.white);		});
 
 		if (initAction, {
 			this.valueAction = initVal;
@@ -381,4 +381,3 @@ TXCurveDraw {	// MultiSlider, popup and buttons for curve drawing with 5 user sl
 	}
 
 }
-

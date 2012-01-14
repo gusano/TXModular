@@ -1,4 +1,5 @@
-// Copyright (C) 2005  Paul Miller. This file is part of TX Modular system distributed under the terms of the GNU General Public License (see file LICENSE).TXDistort {		// Distortion function module 
+// Copyright (C) 2005  Paul Miller. This file is part of TX Modular system distributed under the terms of the GNU General Public License (see file LICENSE).
+TXDistort {		// Distortion function module 
 
 *initClass{
 	//	

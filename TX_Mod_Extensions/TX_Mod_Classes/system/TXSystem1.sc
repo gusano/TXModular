@@ -84,7 +84,7 @@ classvar <arrPresets;			// dummy array ofpresets
 	dataBank = ();
 	dataBank.modulesVisibleOrigin = Point.new(0,0);
 } 
-// start the system
+// start the system
 	
 *startCocoa { 
 	this.start;
@@ -292,7 +292,7 @@ classvar <arrPresets;			// dummy array ofpresets
 		TXWaveshaperSt,
 		TXWaveSynth8,
 		TXWaveSynthPlus2,
-		TXWaveTerrain,		TXWiiController,
+		TXWaveTerrain,		TXWiiController,
 		TXWiiControllerOSC3,
 		TXWiiTrigger,
 		TXWiiTrigOSC2,
@@ -578,8 +578,8 @@ classvar <arrPresets;			// dummy array ofpresets
 	// assign  server
 //	if (txStandAlone == 1, {
 //		server = Server.internal;
-//	},{//		server = Server.local;
-//	});	// server now always internal
+//	},{//		server = Server.local;
+//	});	// server now always internal
 	server = Server.internal;	
 	Server.default = server;
 	server.quit;
@@ -1539,7 +1539,7 @@ if (argModule.class == TXSystem1, {
 	TXBankBuilder2.initClass;
 	TXWidget.initClass;
 	TXFrontScreen.initClass;
-//	TXSeqGui.initClass;//	TXModGui.initClass;	snapshotNo = 0;	
+//	TXSeqGui.initClass;//	TXModGui.initClass;	snapshotNo = 0;	
 	snapshotName = "";	
 	this.clearHistory;
 }
@@ -1605,7 +1605,7 @@ if (argModule.class == TXSystem1, {
 		});
 		historyIndex = (historyEvents.size - 1);
 		// check TXModGui for deletion effects
-//		TXModGui.checkDeletions;   		// run checkDeletions method on all system modules
+//		TXModGui.checkDeletions;   		// run checkDeletions method on all system modules
 		arrSystemModules.do({ arg item, i; item.checkDeletions; });
 		// run checkDeletions method on all frontscreen widgets
 		TXFrontScreen.checkDeletions;
@@ -2165,7 +2165,7 @@ if (argModule.class == TXSystem1, {
 						(1..4), (1..8),
 					] 
 					++ (arrAudioAuxBusses ++ arrFXSendBusses ++ arrControlAuxBusses)
-						.collect({ arg item, i; item.arrOutBusChoices.at(0).at(1) + 1; });	
+						.collect({ arg item, i; item.arrOutBusChoices.at(0).at(1) + 1; });	
 					arrBusses = arrAllBusArrays.at(view.value);
 
 					arrBusRates = [\audio]

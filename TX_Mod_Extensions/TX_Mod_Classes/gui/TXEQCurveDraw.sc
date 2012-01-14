@@ -160,4 +160,3 @@ TXEQCurveDraw {	// MultiSlider and buttons for curve drawing with 5 user slots f
 		this.value = arrSlotData.at(num);
 	}
 }
-

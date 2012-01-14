@@ -109,4 +109,3 @@ TXChainStepGui {	// specific gui for sequencer chain steps
 		action.value(this);
 	}
 }
-

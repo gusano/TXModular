@@ -1590,7 +1590,7 @@ if (totalHighlighted == 1, {
 			},{
 				actionCount = 5;
 			});
-		});		
+		});		
 		actionCount.do({ arg item, i;
 			var arrModules, modulePopup, arrActionItems, arrLegacyActionItems, actionPopup;
 			var holdModuleID, holdModule;
@@ -1931,5 +1931,3 @@ if (totalHighlighted == 1, {
 }
 
 }	// end of class
-
-

@@ -532,4 +532,3 @@ TXOSCTrigActions {
 		arrOSCTrigActions = arrOSCTrigActions.sort({ arg a, b; (a[8]++a[6]) < (b[8]++b[6]) });
 	}
 }
-

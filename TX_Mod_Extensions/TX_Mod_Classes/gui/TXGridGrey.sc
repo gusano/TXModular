@@ -1,5 +1,5 @@
 // Copyright (C) 2005  Paul Miller. This file is part of TX Modular system distributed under the terms of the GNU General Public License (see file LICENSE).
-		TXGridGrey {	// self-building module of various gui elements
+TXGridGrey {	// self-building module of various gui elements
 	var <>labelView, <>labelView2, <>labelView3;
 	var <>greyGrid, <>activeGrid, <>snapshotButton, <>infoLabel, <>shadeBox, <>shadeSlider;
 	var <>allOnButton, <>allOffButton, <>dragOptionPopup; 

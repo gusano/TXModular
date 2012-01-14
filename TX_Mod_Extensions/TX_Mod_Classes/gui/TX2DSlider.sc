@@ -149,6 +149,3 @@ TX2DSlider {	// an adapted version of TXDoubleSlider
 		};
 	}
 }
-
-
-
