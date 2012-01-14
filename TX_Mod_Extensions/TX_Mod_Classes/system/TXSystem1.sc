@@ -817,7 +817,7 @@ TXSystem1 {		// system module 1
 	*saveSystemSettings {
 		var holdFile, holdFileData, holdPath;
 
-		holdPath = PathName.new("~/Library/Application\ Support/TXModular/TXModSettings.tx");
+		holdPath = PathName.new(Platform.userAppSupportDir +/+ "TXModular/TXModSettings.tx");
 		holdFileData = ["TXModSystemSystemSettingsData", 
 			[dataBank.audioDevice, dataBank.bufferSize, dataBank.sampleRate,
 				dataBank.confirmDeletions, dataBank.windowAlpha, dataBank.windowColour.red, 
@@ -836,7 +836,9 @@ TXSystem1 {		// system module 1
 
 	*loadSystemSettings {
 		var validData, holdPath, holdFileData;
-		holdPath = PathName.new("~/Library/Application\ Support/TXModular/TXModSettings.tx");
+
+		holdPath = PathName.new(Platform.userAppSupportDir +/+ "TXModular/TXModSettings.tx");
+
 		// if TXModular directory doesn't exist, create it.
 		if (holdPath.pathOnly.isFolder.not, {
 			holdPath.pathOnly.makeDir(false);
