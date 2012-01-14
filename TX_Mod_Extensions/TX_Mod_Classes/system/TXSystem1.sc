@@ -826,7 +826,7 @@ TXSystem1 {		// system module 1
 				dataBank.audioInDevice, dataBank.audioOutDevice
 			] 
 		];
-		holdFile = File(holdPath.fullPath,"w");
+		holdFile = File(holdPath.fullPath, "w");
 		holdFile << "#" <<< holdFileData << "\n";
 		//	use file as an io stream
 		//	<<< means store the compile string of the object
@@ -835,18 +835,20 @@ TXSystem1 {		// system module 1
 	}
 
 	*loadSystemSettings {
-		var validData, holdPath, holdFileData;
+		var validData, holdPath, holdFile, holdFileData;
 
-		holdPath = PathName.new(Platform.userAppSupportDir +/+ "TXModular/TXModSettings.tx");
+		holdPath = PathName.new(Platform.userAppSupportDir +/+ "TXModular");
+		holdFile = PathName.new(holdPath.pathOnly ++ "TxModSettings.tx");
 
 		// if TXModular directory doesn't exist, create it.
-		if (holdPath.pathOnly.isFolder.not, {
-			holdPath.pathOnly.makeDir(false);
+		// FIXME: this won't work on Windows
+		if (holdPath.isFolder.not, {
+			("mkdir" + holdPath.fullPath).unixCmd;
 		});
 
-		if (File.exists(holdPath.fullPath),  {
+		if (File.exists(holdFile.fullPath),  {
 			// if file TXMODSettings.tx  exists, update values. 
-			holdFileData = thisProcess.interpreter.executeFile(holdPath.fullPath);
+			holdFileData = thisProcess.interpreter.executeFile(holdFile.fullPath);
 			if (holdFileData.class == Array, {
 				if (dataBank.showAudioOptions == true, {
 					dataBank.audioDevice = holdFileData[1][0];
