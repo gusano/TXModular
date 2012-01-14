@@ -667,11 +667,11 @@ showScreen {
 				holdView = nil;
 			}); 
 			// make Button
-			SCButton(holdWindow, Rect(2, 2, 30, 20))
+			Button(holdWindow, Rect(2, 2, 30, 20))
 				.states_([["<-", Color.white, Color.grey(0.1)]])
 				.action_({system.windowToFront});
 			// make background
-			SCStaticText(holdWindow, Rect(0 ,0, 1440, 900)).background_(TXColor.black);
+			StaticText(holdWindow, Rect(0 ,0, 1440, 900)).background_(TXColor.black);
 			// make view
 			// border settings
 			borderX = this.getSynthArgSpec("i_borderX");

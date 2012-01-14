@@ -1121,7 +1121,7 @@ opEnvViewValues {arg opNo;
 }
 
 updateEnvView {
-	if (envView.class == SCEnvelopeView, {
+	if (envView.class == EnvelopeView, {
 		if (envView.notClosed, {
 			6.do({arg i;
 				envView.setEditable(i, true);
@@ -1137,7 +1137,7 @@ updateEnvView {
 updateOpEnvView {arg opNo;
 	var arrViews;
 	arrViews = [opEnvView1, opEnvView2, opEnvView3, opEnvView4, opEnvView5, opEnvView6];
-	if (arrViews.at(opNo - 1).class == SCEnvelopeView, {
+	if (arrViews.at(opNo - 1).class == EnvelopeView, {
 		if (arrViews.at(opNo - 1).notClosed, {
 			6.do({arg i;
 				arrViews.at(opNo - 1).setEditable(i, true);

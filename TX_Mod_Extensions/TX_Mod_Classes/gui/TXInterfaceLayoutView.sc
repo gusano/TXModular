@@ -98,12 +98,12 @@ TXInterfaceLayoutView {
 			holdArrViews;
  		});
 		userView.canReceiveDragHandler = {
-			SCView.currentDrag.asArray[0].isKindOf( TXWidget )
+			View.currentDrag.asArray[0].isKindOf( TXWidget )
 		};
 		userView.receiveDragHandler = {
 			var arrNewWidgets, diffPoint;
-			arrNewWidgets = SCView.currentDrag.asArray;
-			if (SCView.currentDrag.isArray, {
+			arrNewWidgets = View.currentDrag.asArray;
+			if (View.currentDrag.isArray, {
 				if (startDragPoint != nil and: {startDragPoint != Point( nil, nil) }, {
 					diffPoint = Point(dropX,dropY) - startDragPoint;
 					// move all new widgets by diffPoint

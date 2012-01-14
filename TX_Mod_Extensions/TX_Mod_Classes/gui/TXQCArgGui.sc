@@ -304,17 +304,17 @@ TXQCArgGui {
 			holdColour;
 	 	});
 		colourBoxView.canReceiveDragHandler = {
-			SCView.currentDrag.isKindOf( Color )
+			View.currentDrag.isKindOf( Color )
 		};
 		colourBoxView.receiveDragHandler = {
 			var holdDragObject;
-			holdDragObject = SCView.currentDrag;
+			holdDragObject = View.currentDrag;
 			colourBoxView.background_(holdDragObject);
 			this.setColour(holdDragObject, setArgValFunc);
 		};
 		
 		// colourPickerButtonView			
-		colourPickerButtonView = SCButton(window, 120 @ 20)
+		colourPickerButtonView = Button(window, 120 @ 20)
 		.states_([["Colour Picker", TXColor.white, TXColor.sysGuiCol1]])
 		.action_({
 			TXColour.showPicker;

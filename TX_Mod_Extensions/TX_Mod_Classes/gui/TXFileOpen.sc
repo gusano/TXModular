@@ -14,7 +14,7 @@ TXFileOpen {	// file open module with filename string
 	init { arg argParent, dimensions, label, argAction, initString, buttonWidth;
 	
 		action = argAction;
-		buttonView = SCButton(argParent, buttonWidth @ dimensions.y)
+		buttonView = Button(argParent, buttonWidth @ dimensions.y)
 		.states_([
 			[label ? "Open new file", TXColor.white, TXColor.sysGuiCol1]
 		])
@@ -26,7 +26,7 @@ TXFileOpen {	// file open module with filename string
 				textView.string = holdVal.asString.keep(-60);
 			});
 		});
-		textView = SCStaticText(argParent, (dimensions.x - buttonWidth+4) @ dimensions.y)
+		textView = StaticText(argParent, (dimensions.x - buttonWidth+4) @ dimensions.y)
 			.stringColor_(TXColor.sysGuiCol1).background_(TXColor.white);
 		textView.string = initString.asString.keep(-60);
 		textView.font = (Font("Gill Sans", 11));

@@ -184,7 +184,7 @@ init {arg argInstName;
 		["EZNumber", "Beats per bar", ControlSpec(1, 999), "beatsPerBar"],
 		["TXCheckBox", "Lock step times when BPM changes", "timeLock", nil, 270],
 		["TXStaticText", "Status", {this.runningStatus}, 
-			{arg view; if (view.class == SCTextField, {runningStatusView = view}, 
+			{arg view; if (view.class == TextField, {runningStatusView = view}, 
 			{runningStatusView = view.textView}); }, 150], 
 	]);	
 	//	use base class initialise 

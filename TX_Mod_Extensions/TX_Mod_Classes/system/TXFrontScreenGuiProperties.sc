@@ -297,11 +297,11 @@ classvar window;
 		screenColourBox.background;
  	});
 	screenColourBox.canReceiveDragHandler = {
-		SCView.currentDrag.isKindOf( Color )
+		View.currentDrag.isKindOf( Color )
 	};
 	screenColourBox.receiveDragHandler = {
 		var holdDragObject;
-		holdDragObject = SCView.currentDrag;
+		holdDragObject = View.currentDrag;
 		classData.screenColour = holdDragObject;
 		// update view
 		system.showView;
@@ -635,11 +635,11 @@ if (totalHighlighted == 1, {
 		boxColourBox.background;
  	});
 	boxColourBox.canReceiveDragHandler = {
-		SCView.currentDrag.isKindOf( Color )
+		View.currentDrag.isKindOf( Color )
 	};
 	boxColourBox.receiveDragHandler = {
 		var holdDragObject;
-		holdDragObject = SCView.currentDrag;
+		holdDragObject = View.currentDrag;
 		boxColourBox.background_(holdDragObject);
 		backgroundRed.value = (boxColourBox.background.red * 255).round;
 		backgroundGreen.value = (boxColourBox.background.green * 255).round;
@@ -765,11 +765,11 @@ if (totalHighlighted == 1, {
 			knobColourBox.background;
 	 	});
 		knobColourBox.canReceiveDragHandler = {
-			SCView.currentDrag.isKindOf( Color )
+			View.currentDrag.isKindOf( Color )
 		};
 		knobColourBox.receiveDragHandler = {
 			var holdDragObject;
-			holdDragObject = SCView.currentDrag;
+			holdDragObject = View.currentDrag;
 			knobColourBox.background_(holdDragObject);
 			knobColourRed.value = (knobColourBox.background.red * 255).round;
 			knobColourGreen.value = (knobColourBox.background.green * 255).round;
@@ -986,11 +986,11 @@ if (totalHighlighted == 1, {
 			stringColorBox.background;
 	 	});
 		stringColorBox.canReceiveDragHandler = {
-			SCView.currentDrag.isKindOf( Color )
+			View.currentDrag.isKindOf( Color )
 		};
 		stringColorBox.receiveDragHandler = {
 			var holdDragObject;
-			holdDragObject = SCView.currentDrag;
+			holdDragObject = View.currentDrag;
 			stringColorBox.background_(holdDragObject);
 			holdCurrentWidget.stringColor = holdDragObject;
 			// update view

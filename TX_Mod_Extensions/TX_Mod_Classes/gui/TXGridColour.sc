@@ -72,7 +72,7 @@ TXGridColour {	// self-building module of various gui elements
 		}); 
 
 		// create button
-		snapshotButton = SCButton(argParent, 150 @ 20)
+		snapshotButton = Button(argParent, 150 @ 20)
 		.states_([["Take snapshot", TXColor.white, TXColor.sysGuiCol1]])
 		.action_({
 			snapshotArr = getSnapArrFunc.value;
@@ -85,14 +85,14 @@ TXGridColour {	// self-building module of various gui elements
 			system.flagGuiUpd;
 		});
 		// label 
-		labelView = SCStaticText(argParent, labelWidth @ 20)
+		labelView = StaticText(argParent, labelWidth @ 20)
 			.stringColor_(TXColour.sysGuiCol1).background_(TXColor.white);
 		labelView.string = label;
 		labelView.align = \left;
 		
 		if (gridType == "Target", {
 			// label 
-			labelView2 = SCStaticText(argParent, 320 @ 20)
+			labelView2 = StaticText(argParent, 320 @ 20)
 				.stringColor_(TXColour.sysGuiCol1).background_(TXColor.white);
 			labelView2.string = "click on a box, or use RGB values, to choose target colour";
 			labelView2.align = \center;
@@ -115,11 +115,11 @@ TXGridColour {	// self-building module of various gui elements
 				holdColour;
 		 	});
 			shadeBox.canReceiveDragHandler = {
-				SCView.currentDrag.isKindOf( Color )
+				View.currentDrag.isKindOf( Color )
 			};
 			shadeBox.receiveDragHandler = {
 				var holdDragObject;
-				holdDragObject = SCView.currentDrag;
+				holdDragObject = View.currentDrag;
 				shadeBox.background_(holdDragObject);
 				setValueFunc.value(shadeBox.background.asArray);
 				redNumBox.value = shadeBox.background.red * 255;
@@ -127,7 +127,7 @@ TXGridColour {	// self-building module of various gui elements
 				blueNumBox.value = shadeBox.background.blue * 255;
 			};
 			// label
-			SCStaticText(argParent, 40 @ 20)
+			StaticText(argParent, 40 @ 20)
 				.stringColor_(TXColour.sysGuiCol1).background_(TXColor.white).string = "Red";
 			// redNumBox
 			redNumBox = TXScrollNumBox(argParent, 40 @ 20);
@@ -138,7 +138,7 @@ TXGridColour {	// self-building module of various gui elements
 			};
 			redNumBox.value = (getValueFunc.value).at(0) * 255;
 			// label
-			SCStaticText(argParent, 40 @ 20)
+			StaticText(argParent, 40 @ 20)
 				.stringColor_(TXColour.sysGuiCol1).background_(TXColor.white).string = "Green";
 			// greenNumBox
 			greenNumBox = TXScrollNumBox(argParent, 40 @ 20);
@@ -149,7 +149,7 @@ TXGridColour {	// self-building module of various gui elements
 			};
 			greenNumBox.value = (getValueFunc.value).at(1) * 255;
 			// label
-			SCStaticText(argParent, 40 @ 20)
+			StaticText(argParent, 40 @ 20)
 				.stringColor_(TXColour.sysGuiCol1).background_(TXColor.white).string = "Blue";
 			// blueNumBox
 			blueNumBox = TXScrollNumBox(argParent, 40 @ 20);
@@ -168,7 +168,7 @@ TXGridColour {	// self-building module of various gui elements
 		}); 
 		if (gridType == "Zone", {
 			// allOnButton			
-			allOnButton = SCButton(argParent, 50 @ 20)
+			allOnButton = Button(argParent, 50 @ 20)
 			.states_([["All On", TXColor.white, TXColor.sysGuiCol1]])
 			.action_({
 				activeGrid = Array.fill2D(colourGrid.rows, colourGrid.columns, 1);
@@ -177,7 +177,7 @@ TXGridColour {	// self-building module of various gui elements
 				setValueFunc.value(activeGrid);
 			});
 			// allOffButton
-			allOffButton = SCButton(argParent, 50 @ 20)
+			allOffButton = Button(argParent, 50 @ 20)
 			.states_([["All Off", TXColor.white, TXColor.sysGuiCol1]])
 			.action_({
 				activeGrid = Array.fill2D(colourGrid.rows, colourGrid.columns, 0);
@@ -187,7 +187,7 @@ TXGridColour {	// self-building module of various gui elements
 			});
 			
 			// dragOptionPopup
-			dragOptionPopup = SCPopUpMenu(argParent, 200 @ 20)
+			dragOptionPopup = PopUpMenu(argParent, 200 @ 20)
 				.stringColor_(TXColour.black).background_(TXColor.white);
 			dragOptionPopup.items = ["dragging turns boxes on", "dragging switches box values"];
 			dragOptionPopup.action = {

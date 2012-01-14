@@ -1497,7 +1497,7 @@ TXWTextDisplayBox : TXWNumberBox {
 			holdView = TXDisplayTextNum(window, 
 				Rect(offsetLeft + holdFromLeft, offsetTop + holdFromTop, width, height));
 		},{
-			holdView = SCTextView(window, 
+			holdView = TextView(window, 
 				Rect(offsetLeft + holdFromLeft, offsetTop + holdFromTop, width, height));
 		});
 		holdView.background = background;

@@ -71,7 +71,7 @@ TXGridGrey {	// self-building module of various gui elements
 		}); 
 
 		// create button
-		snapshotButton = SCButton(argParent, 150 @ 20)
+		snapshotButton = Button(argParent, 150 @ 20)
 		.states_([["Take snapshot", TXColor.white, TXColor.sysGuiCol1]])
 		.action_({
 			snapshotArr = getSnapArrFunc.value;
@@ -84,14 +84,14 @@ TXGridGrey {	// self-building module of various gui elements
 			system.flagGuiUpd;
 		});
 		// label 
-		labelView = SCStaticText(argParent, labelWidth @ 20)
+		labelView = StaticText(argParent, labelWidth @ 20)
 			.stringColor_(TXColour.sysGuiCol1).background_(TXColor.white);
 		labelView.string = label;
 		labelView.align = \left;
 		
 		if (gridType == "Target", {
 			// label 
-			labelView2 = SCStaticText(argParent, 320 @ 20)
+			labelView2 = StaticText(argParent, 320 @ 20)
 				.stringColor_(TXColour.sysGuiCol1).background_(TXColor.white);
 			labelView2.string = "click on a box, or use slider, to choose target shade";
 			labelView2.align = \center;
@@ -104,10 +104,10 @@ TXGridGrey {	// self-building module of various gui elements
 			});
 
 			// shadebox 
-			shadeBox = SCStaticText(argParent, 40 @ 40);
+			shadeBox = StaticText(argParent, 40 @ 40);
 			shadeBox.background_(Color.grey(getValueFunc.value));
 			// shadeSlider
-			shadeSlider = SCSlider(argParent, 100 @ 20);
+			shadeSlider = Slider(argParent, 100 @ 20);
 			shadeSlider.action = {
 				shadeBox.background_(Color.grey(shadeSlider.value));
 				setValueFunc.value(shadeSlider.value);
@@ -116,7 +116,7 @@ TXGridGrey {	// self-building module of various gui elements
 		}); 
 		if (gridType == "Zone", {
 			// allOnButton			
-			allOnButton = SCButton(argParent, 50 @ 20)
+			allOnButton = Button(argParent, 50 @ 20)
 			.states_([["All On", TXColor.white, TXColor.sysGuiCol1]])
 			.action_({
 				activeGrid = Array.fill2D(greyGrid.rows, greyGrid.columns, 1);
@@ -125,7 +125,7 @@ TXGridGrey {	// self-building module of various gui elements
 				setValueFunc.value(activeGrid);
 			});
 			// allOffButton
-			allOffButton = SCButton(argParent, 50 @ 20)
+			allOffButton = Button(argParent, 50 @ 20)
 			.states_([["All Off", TXColor.white, TXColor.sysGuiCol1]])
 			.action_({
 				activeGrid = Array.fill2D(greyGrid.rows, greyGrid.columns, 0);
@@ -135,7 +135,7 @@ TXGridGrey {	// self-building module of various gui elements
 			});
 			
 			// dragOptionPopup
-			dragOptionPopup = SCPopUpMenu(argParent, 200 @ 20)
+			dragOptionPopup = PopUpMenu(argParent, 200 @ 20)
 				.stringColor_(TXColour.black).background_(TXColor.white);
 			dragOptionPopup.items = ["dragging turns boxes on", "dragging switches box values"];
 			dragOptionPopup.action = {

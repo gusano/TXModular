@@ -1022,7 +1022,7 @@ envViewValues2 {
 }
 
 updateEnvView {
-	if (envView.class == SCEnvelopeView, {
+	if (envView.class == EnvelopeView, {
 		if (envView.notClosed, {
 			6.do({arg i;
 				envView.setEditable(i, true);
@@ -1036,7 +1036,7 @@ updateEnvView {
 }
 
 updateEnvView2 {
-	if (envView2.class == SCEnvelopeView, {
+	if (envView2.class == EnvelopeView, {
 		if (envView2.notClosed, {
 			6.do({arg i;
 				envView2.setEditable(i, true);

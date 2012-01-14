@@ -468,7 +468,7 @@ envViewValues {
 }
 
 updateEnvView {
-	if (envView.class == SCEnvelopeView, {
+	if (envView.class == EnvelopeView, {
 		if (envView.notClosed, {
 			6.do({arg i;
 				envView.setEditable(i, true);

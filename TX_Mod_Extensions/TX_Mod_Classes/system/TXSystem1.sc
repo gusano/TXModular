@@ -2648,11 +2648,11 @@ TXSystem1 {		// system module 1
 			screenColourBox.background;
 		});
 		screenColourBox.canReceiveDragHandler = {
-			SCView.currentDrag.isKindOf( Color )
+			View.currentDrag.isKindOf( Color )
 		};
 		screenColourBox.receiveDragHandler = {
 			var holdDragObject;
-			holdDragObject = SCView.currentDrag;
+			holdDragObject = View.currentDrag;
 			w.view.background = holdDragObject;
 			dataBank.windowColour = holdDragObject;
 			screenColourBox.background_(holdDragObject);
