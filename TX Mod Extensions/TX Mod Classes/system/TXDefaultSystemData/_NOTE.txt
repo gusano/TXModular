@@ -1,0 +1,7 @@
+Note about folder ".../TX Mod Classes/system/TXDefaultSystemData/".
+This folder is normally empty. 
+
+It is only used in Autonomous TX Standalone Systems where a TX system file has been saved in this folder as TXDefaultSystem.
+This folder is the place where any external files used by the TXDefaultSystem should be kept.
+
+External files include samples, loops, wave/aiff files used by File Player modules, and Quartz Composer files used by Quartz Player modules.
