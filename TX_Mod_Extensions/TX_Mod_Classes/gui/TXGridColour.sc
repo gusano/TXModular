@@ -22,7 +22,7 @@ TXGridColour {	// self-building module of various gui elements
 		left = 0;
 		top = 0;
 		// decorator next line 
-		if (argParent.class == SCWindow, {
+		if (argParent.class == Window, {
 			argParent.view.decorator.nextLine;
 			argParent.view.decorator.shift(0, 2);
 		}, {
@@ -98,7 +98,7 @@ TXGridColour {	// self-building module of various gui elements
 			labelView2.align = \center;
 
 			// decorator next line 
-			if (argParent.class == SCWindow, {
+			if (argParent.class == Window, {
 				argParent.view.decorator.nextLine;
 			}, {
 				argParent.decorator.nextLine;

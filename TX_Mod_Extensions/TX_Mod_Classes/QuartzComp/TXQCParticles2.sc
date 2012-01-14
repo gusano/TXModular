@@ -354,7 +354,7 @@ showQCScreen {
 		//	check if window exists 
 		if (holdQCWindow.isNil) {
 			// make window
-			holdQCWindow= SCWindow(" ", Rect(0, 580, screenWidth, screenHeight)).front; 
+			holdQCWindow= Window(" ", Rect(0, 580, screenWidth, screenHeight)).front;
 			holdQCWindow.onClose_({
 				holdQCWindow = nil;
 				holdQCView = nil;

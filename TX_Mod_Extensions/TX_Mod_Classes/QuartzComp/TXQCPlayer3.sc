@@ -435,7 +435,7 @@ showQCScreen { arg argPath;
 				if (File.exists(holdPath), {
 					// make window
 					if (this.getSynthArgSpec("i_border") == 1, {holdBorder = true;}, {holdBorder = false;});
-					holdQCWindow= SCWindow(" ", Rect(screenPosX, screenPosY, screenWidth, screenHeight), border: holdBorder).front; 
+					holdQCWindow= Window(" ", Rect(screenPosX, screenPosY, screenWidth, screenHeight), border: holdBorder).front;
 					holdQCWindow.onClose_({
 						holdQCWindow = nil;
 						holdQCView = nil;

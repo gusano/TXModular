@@ -352,7 +352,7 @@ showQCScreen { arg argPath;
 						// make window
 						if (this.getSynthArgSpec("i_winControls") == 1, {holdWinBorder = true;}, 
 							{holdWinBorder = false;});
-						holdQCWindow= SCWindow(this.getSynthArgSpec("windowName") ? " ", 
+						holdQCWindow= Window(this.getSynthArgSpec("windowName") ? " ",
 							Rect(screenPosX, screenPosY, screenWidth, screenHeight), border: holdWinBorder).front; 
 						holdQCWindow.onClose_({
 							holdQCWindow = nil;

@@ -280,14 +280,14 @@ openGui{ arg argParent; 			 // override if neccessary
 	
 baseOpenGui{  arg argModule, argParent; 
 	if (w.notNil, {
-		if (w.class == SCWindow,{
+		if (w.class == Window,{
 			if (w.isClosed.not,{
 				w.front;
 			}, {
 				w = TXGuiBuild2.new(argModule, argParent); 
 			});
 	 	}, {
-			// if w.notNil and w.class not a SCWindow then build
+			// if w.notNil and w.class not a Window then build
 			w = TXGuiBuild2.new(argModule, argParent); 
 		});
  	}, {
@@ -297,7 +297,7 @@ baseOpenGui{  arg argModule, argParent;
 }
 
 closeGui {
-	if (w.class == SCWindow, {
+	if (w.class == Window, {
 		if ( w.isClosed.not,  {w.close}); 
 	});
 }

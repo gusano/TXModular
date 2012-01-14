@@ -652,7 +652,7 @@ showScreen {
 				{holdWinBorder = true;}, 
 				{holdWinBorder = false;
 			});
-			holdWindow= SCWindow(" ", Rect(screenPosX, screenPosY, screenWidth, screenHeight),
+			holdWindow= Window(" ", Rect(screenPosX, screenPosY, screenWidth, screenHeight),
 				border: holdWinBorder).front; 
 			holdWindow.onClose_({
 				holdWindow = nil;
