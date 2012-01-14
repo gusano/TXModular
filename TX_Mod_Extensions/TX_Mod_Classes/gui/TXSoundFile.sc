@@ -60,7 +60,8 @@ TXSoundFile {
 				if (fileName != "", {
 					soundFileView.soundfile = SoundFile.new(fileName);
 					soundFileView.readWithTask( block: 1, showProgress: false, doneAction: {
-						totSamples = soundFileView.dataNumSamples/soundFileView.soundfile.numChannels;
+						//totSamples = soundFileView.dataNumSamples/soundFileView.soundfile.numChannels;
+						totSamples = soundFileView.soundfile.numFrames/soundFileView.soundfile.numChannels;
 						zoomOne = (soundFileView.bounds.width - 2) / totSamples;
 						this.lo = initMinVal;
 						this.hi = initMaxVal;

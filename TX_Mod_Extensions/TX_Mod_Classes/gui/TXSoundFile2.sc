@@ -50,14 +50,16 @@ TXSoundFile2 {
 
 			if ( arrData.size > 0, {
 				soundFileView.setData(arrData);
-				totSamples = soundFileView.dataNumSamples/soundFileView.soundfile.numChannels;
+				//totSamples = soundFileView.dataNumSamples/soundFileView.soundfile.numChannels;
+				totSamples = soundFileView.soundfile.numFrmes/soundFileView.soundfile.numChannels;
 				zoomOne = (soundFileView.bounds.width - 2) / totSamples;
 				this.lo = initMinVal;
 				this.hi = initMaxVal;
 			},{
 				soundFileView.soundfile = SoundFile.new(fileName);
 				soundFileView.readWithTask( block: 1, showProgress: false, doneAction: {
-					totSamples = soundFileView.dataNumSamples/
+					//totSamples = soundFileView.dataNumSamples/
+					totSamples = soundFileView.soundfile.numFrames/
 						soundFileView.soundfile.numChannels;
 					zoomOne = (soundFileView.bounds.width - 2) / totSamples;
 					this.lo = initMinVal;
