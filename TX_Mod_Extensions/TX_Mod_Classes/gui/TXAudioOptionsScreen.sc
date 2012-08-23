@@ -71,7 +71,7 @@ classvar system, w;
 
 	// decorator 
 	w.view.decorator.shift(30, 0);
-	if (Platform.name == 'osx', {
+	if (thisProcess.platform.name == 'osx', {
 		// popup - Audio device
 		arrValidDevices = ServerOptions.devices.reject({ |item, i|
 			arrRejectStrings.indexOfEqual(item).notNil
